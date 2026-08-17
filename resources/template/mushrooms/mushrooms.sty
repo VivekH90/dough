@@ -67,16 +67,16 @@
 \definecolor{authorbadgebg}{RGB}{25,45,110}
 \definecolor{linkbadgebg}{RGB}{130,20,20}
 
-\definecolor{handoutpink}{RGB}{210,22,131}
-\definecolor{handoutred}{RGB}{178,38,38}
-\colorlet{titlepink}{handoutpink}
+\definecolor{maincolor}{RGB}{210,22,131}
+\definecolor{msred}{RGB}{178,38,38}
+\colorlet{titlepink}{maincolor}
 
-\newcommand{\sethandoutmaincolor}[1]{%
-  \definecolor{handoutpink}{RGB}{#1}%
-  \colorlet{titlepink}{handoutpink}%
+\newcommand{\setmsmaincolor}[1]{%
+  \definecolor{maincolor}{RGB}{#1}%
+  \colorlet{titlepink}{maincolor}%
 }
 
-\newcommand{\sethandoutsecondarycolor}[1]{\definecolor{handoutred}{RGB}{#1}}
+\newcommand{\setmssecondarycolor}[1]{\definecolor{msred}{RGB}{#1}}
 
 \RequirePackage{float}
 
@@ -87,13 +87,13 @@
 \RequirePackage{doi}
 
 \titleformat{\section}
-{\normalfont\Large\bfseries\sffamily}
-{\textcolor{handoutpink}{\S\thesection}}
+{\normalfont\Large\bfseries\sffamily\color{maincolor}}
+{\textcolor{maincolor}{\S\thesection}}
 {0.5em}{}
 
 \titleformat{\subsection}
 {\normalfont\large\bfseries\sffamily\color{black}}
-{\textcolor{handoutred}{\thesubsection}}{1em}{}
+{\textcolor{msred}{\thesubsection}}{1em}{}
 
 \titleformat{\subsubsection}
 {\normalfont\normalsize\bfseries\sffamily\color{black}}
@@ -150,8 +150,8 @@
 
 \renewcommand{\contentsname}{Contents}
 \renewcommand{\cfttoctitlefont}{\Large\bfseries\sffamily}
-\renewcommand{\cftsecfont}{\color{black}\bfseries}
-\renewcommand{\cftsecpagefont}{\color{black}\bfseries}
+\renewcommand{\cftsecfont}{\color{maincolor}\bfseries}
+\renewcommand{\cftsecpagefont}{\color{maincolor}\bfseries}
 \renewcommand{\cftsubsecfont}{\color{black}}
 \renewcommand{\cftsubsecpagefont}{\color{black}}
 \renewcommand{\cftdot}{.}
@@ -209,74 +209,74 @@
   {\par\noindent\rmfamily\textbf{ABSTRACT: }}
   {\par\vspace{1.5em}}
 
-\newcommand{\handout@image}{~/workspace/test/mushroom.png}
-\newcommand{\handout@maintitle}{Complex Analysis}
-\newcommand{\handout@subtitle}{Handouts from Monsoon'26}
-\newcommand{\handout@date}{Aug 14, 2026}
-\newcommand{\handout@name}{mushrooms-project}
-\newcommand{\handout@namelink}{https://github.com/VivekH90/mushrooms}
-\newcommand{\handout@titleline}{Title of this handout goes here}
-\newcommand{\handout@runninghead}{Complex Analysis}
+\newcommand{\ms@image}{~/workspace/test/mushroom.png}
+\newcommand{\ms@maintitle}{Complex Analysis}
+\newcommand{\ms@subtitle}{Handouts from Monsoon'26}
+\newcommand{\ms@date}{Aug 14, 2026}
+\newcommand{\ms@name}{mushrooms-project}
+\newcommand{\ms@namelink}{https://github.com/VivekH90/mushrooms}
+\newcommand{\ms@titleline}{Title of this handout goes here}
+\newcommand{\ms@runninghead}{Complex Analysis}
 
-\newcommand{\sethandoutimage}[1]{\renewcommand{\handout@image}{#1}}
+\newcommand{\setmsimage}[1]{\renewcommand{\ms@image}{#1}}
 
-\newcommand{\sethandoutmaintitle}[1]{%
-  \renewcommand{\handout@maintitle}{#1}%
-  \renewcommand{\handout@runninghead}{#1}%
+\newcommand{\setmsmaintitle}[1]{%
+  \renewcommand{\ms@maintitle}{#1}%
+  \renewcommand{\ms@runninghead}{#1}%
 }
 
-\newcommand{\sethandoutsubtitle}[1]{\renewcommand{\handout@subtitle}{#1}}
+\newcommand{\setmssubtitle}[1]{\renewcommand{\ms@subtitle}{#1}}
 
-\newcommand{\sethandoutdate}[1]{\renewcommand{\handout@date}{#1}}
+\newcommand{\setmsdate}[1]{\renewcommand{\ms@date}{#1}}
 
-\newcommand{\sethandoutname}[2]{%
-  \renewcommand{\handout@name}{#1}%
-  \renewcommand{\handout@namelink}{#2}%
+\newcommand{\setmsname}[2]{%
+  \renewcommand{\ms@name}{#1}%
+  \renewcommand{\ms@namelink}{#2}%
 }
 
-\newcommand{\sethandouttitleline}[1]{\renewcommand{\handout@titleline}{#1}}
+\newcommand{\setmstitleline}[1]{\renewcommand{\ms@titleline}{#1}}
 
-\newcommand{\handout@haslinkbadge}{false}
-\newcommand{\handout@linklabel}{}
-\newcommand{\handout@linkurl}{}
-\newcommand{\sethandoutlinkbadge}[2]{%
-  \renewcommand{\handout@linklabel}{#1}%
-  \renewcommand{\handout@linkurl}{#2}%
-  \renewcommand{\handout@haslinkbadge}{true}%
+\newcommand{\ms@haslinkbadge}{false}
+\newcommand{\ms@linklabel}{}
+\newcommand{\ms@linkurl}{}
+\newcommand{\setmslinkbadge}[2]{%
+  \renewcommand{\ms@linklabel}{#1}%
+  \renewcommand{\ms@linkurl}{#2}%
+  \renewcommand{\ms@haslinkbadge}{true}%
 }
 
-\newcommand{\sethandoutrunninghead}[1]{\renewcommand{\handout@runninghead}{#1}}
+\newcommand{\setmsrunninghead}[1]{\renewcommand{\ms@runninghead}{#1}}
 
-\AtBeginDocument{\fancyhead[L]{\textbf{\handout@runninghead}}}
+\AtBeginDocument{\fancyhead[L]{\textbf{\ms@runninghead}}}
 
-\newcommand{\makehandouttitle}{%
+\newcommand{\makemstitle}{%
 \thispagestyle{empty}%
 \vspace*{0pt}%
 
 \noindent
 \begin{minipage}[c]{0.18\textwidth}
-    \includegraphics[width=\linewidth]{\handout@image}
+    \includegraphics[width=\linewidth]{\ms@image}
 \end{minipage}%
 \hfill
 \begin{minipage}[c]{0.78\textwidth}
-    {\sffamily\bfseries\fontsize{40pt}{44pt}\selectfont\color{handoutpink}\handout@maintitle}\\[6pt]
-    {\sffamily\bfseries\large\color{subtitlegray}\handout@subtitle}
+    {\sffamily\bfseries\fontsize{40pt}{44pt}\selectfont\color{maincolor}\ms@maintitle}\\[6pt]
+    {\sffamily\bfseries\large\color{subtitlegray}\ms@subtitle}
 \end{minipage}
 
 \vspace{18pt}
 
-\datebadge{\handout@date}%
+\datebadge{\ms@date}%
 \hspace{8pt}%
-\githubauthorbadge{\handout@name}{\handout@namelink}%
-\ifdefstring{\handout@haslinkbadge}{true}{%
-  \hspace{8pt}\extralinkbadge{\handout@linklabel}{\handout@linkurl}%
+\githubauthorbadge{\ms@name}{\ms@namelink}%
+\ifdefstring{\ms@haslinkbadge}{true}{%
+  \hspace{8pt}\extralinkbadge{\ms@linklabel}{\ms@linkurl}%
 }{}
 
 \vspace{20pt}
 \hrule height 1pt
 \vspace{15pt}
 
-\hfill{\sffamily\bfseries\huge\color{handoutpink}\handout@titleline}
+\hfill{\sffamily\bfseries\huge\color{maincolor}\ms@titleline}
 
 \vspace{15pt}
 
