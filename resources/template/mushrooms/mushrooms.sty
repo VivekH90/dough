@@ -1,0 +1,308 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mushrooms}[2026/08/15 v1.0 Handout title-block package]
+
+\RequirePackage[a4paper,margin=1in,headheight=15pt]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+
+\RequirePackage{amsmath,amssymb,amsthm}
+\RequirePackage{natbib}
+\RequirePackage{xcolor}
+\RequirePackage{algpseudocode}
+\RequirePackage{setspace}
+\RequirePackage{etoolbox}
+\RequirePackage{inconsolata}
+
+\definecolor{keywordcolor}{RGB}{0,102,204}
+\definecolor{commentcolor}{RGB}{0,153,0}
+\definecolor{returncolor}{RGB}{153,0,153}
+
+\algrenewcommand{\algorithmicend}{\textcolor{keywordcolor}{\textbf{end}}}
+\algrenewcommand{\algorithmicfor}{\textcolor{keywordcolor}{\textbf{for}}}
+\algrenewcommand{\algorithmicdo}{\textcolor{keywordcolor}{\textbf{do}}}
+\algrenewcommand{\algorithmicwhile}{\textcolor{keywordcolor}{\textbf{while}}}
+\algrenewcommand{\algorithmicif}{\textcolor{keywordcolor}{\textbf{if}}}
+\algrenewcommand{\algorithmicelse}{\textcolor{keywordcolor}{\textbf{else}}}
+\algrenewcommand{\algorithmicreturn}{\textcolor{returncolor}{\textbf{return}}}
+\algrenewcommand{\algorithmiccomment}[1]{\textcolor{commentcolor}{$\triangleright$ #1}}
+
+\renewcommand{\algorithmicrequire}{\textcolor{keywordcolor}{\textbf{Input:}}}
+\renewcommand{\algorithmicensure}{\textcolor{keywordcolor}{\textbf{Output:}}}
+
+\AtBeginEnvironment{algorithmic}{\ttfamily\small}
+\AtBeginEnvironment{algorithmic}{\setstretch{1.4}}
+
+\RequirePackage[version=4]{mhchem}
+
+\RequirePackage{helvet}
+\RequirePackage{lmodern}
+
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
+\RequirePackage{tikz}
+\usetikzlibrary{backgrounds}
+
+\RequirePackage{tabularx}
+\RequirePackage{longtable}
+\RequirePackage{booktabs}
+
+\definecolor{shadeblue}{RGB}{225,245,254}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{248,248,248}
+
+\definecolor{tagcolor}{RGB}{0,90,160}
+\definecolor{attrcolor}{RGB}{200,90,0}
+\definecolor{stringcolor}{RGB}{163,21,21}
+
+\definecolor{boxblue}{RGB}{30,90,160}
+\definecolor{boxgray}{RGB}{245,246,248}
+
+\definecolor{tocblue}{RGB}{0,102,170}
+
+\definecolor{subtitlegray}{RGB}{88,88,88}
+\definecolor{datebadgebg}{RGB}{20,20,20}
+\definecolor{authorbadgebg}{RGB}{25,45,110}
+\definecolor{linkbadgebg}{RGB}{130,20,20}
+
+\definecolor{maincolor}{RGB}{210,22,131}
+\definecolor{msred}{RGB}{178,38,38}
+\colorlet{titlepink}{maincolor}
+
+\newcommand{\setmsmaincolor}[1]{%
+  \definecolor{maincolor}{RGB}{#1}%
+  \colorlet{titlepink}{maincolor}%
+}
+
+\newcommand{\setmssecondarycolor}[1]{\definecolor{msred}{RGB}{#1}}
+
+\RequirePackage{float}
+
+\RequirePackage[hidelinks]{hyperref}
+
+\RequirePackage{titlesec}
+\RequirePackage{url}
+\RequirePackage{doi}
+
+\titleformat{\section}
+{\normalfont\Large\bfseries\sffamily\color{maincolor}}
+{\textcolor{maincolor}{\S\thesection}}
+{0.5em}{}
+
+\titleformat{\subsection}
+{\normalfont\large\bfseries\sffamily\color{black}}
+{\textcolor{msred}{\thesubsection}}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\sffamily\color{black}}
+{\thesubsubsection}{1em}{}
+
+\RequirePackage{mdframed}
+\definecolor{algback}{RGB}{248,248,248}
+\newcommand{\algspace}{\vspace{0.15cm}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{axiom}{Axiom}[section]
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{corollary}
+\newtheorem{corollary}{Corollary}[section]
+
+\RequirePackage{tocloft}
+\RequirePackage{listings}
+
+\lstdefinelanguage{HTML}{
+    sensitive=true,
+    comment=[s]{<!--}{-->},
+    commentstyle=\color{codegreen}\itshape,
+    morestring=[b]",
+    stringstyle=\color{stringcolor},
+    moredelim=[s][\color{tagcolor}]{<}{>},
+}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    basicstyle=\ttfamily\footnotesize,
+    numbers=left,
+    numberstyle=\tiny\color{codegray},
+    keywordstyle=\color{blue!80!black}\bfseries,
+    commentstyle=\color{codegreen}\itshape,
+    stringstyle=\color{stringcolor},
+    identifierstyle=\color{black},
+    breaklines=true,
+    showstringspaces=false,
+    frame=none,
+    captionpos=b,
+    belowcaptionskip=5pt,
+}
+\lstset{style=mystyle}
+
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\cfttoctitlefont}{\Large\bfseries\sffamily}
+\renewcommand{\cftsecfont}{\color{maincolor}\bfseries}
+\renewcommand{\cftsecpagefont}{\color{maincolor}\bfseries}
+\renewcommand{\cftsubsecfont}{\color{black}}
+\renewcommand{\cftsubsecpagefont}{\color{black}}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftsecnumwidth}{2.5em}
+\setlength{\cftsubsecnumwidth}{3.5em}
+\setlength{\cftbeforesecskip}{8pt}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\fancyfoot[L]{\textcolor{gray}{\rightmark}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{breakable,skins}
+
+\newtcolorbox{generalbox}{
+    enhanced, breakable,
+    colback=green!40!white, colframe=green!30!black,
+    boxrule=0pt, leftrule=1mm, arc=0pt, outer arc=0pt,
+    left=6mm, right=4mm, top=3mm, bottom=3mm,
+    before skip=10pt, after skip=10pt
+}
+
+\newtcblisting{codeexample}{
+    colback=backcolour, colframe=black!40,
+    listing only, listing options={style=mystyle},
+    breakable, arc=3pt, boxrule=0.5pt
+}
+
+\newtcolorbox{msbox}{
+    enhanced, breakable,
+    boxrule=0pt,
+    leftrule=1mm,
+    colframe=maincolor,
+    arc=0pt, outer arc=0pt,
+    interior style={
+        left color=maincolor!25!white,
+        right color=maincolor!15!white
+    },
+    left=6mm, right=4mm, top=3mm, bottom=3mm,
+    before skip=10pt, after skip=10pt
+}
+
+\newtcbox{\datebadge}{
+    nobeforeafter, colback=datebadgebg, colframe=datebadgebg,
+    boxrule=0pt, arc=8pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+    fontupper=\sffamily\bfseries\small\color{white}
+}
+
+\newtcbox{\authorbadge}{
+    nobeforeafter, colback=authorbadgebg, colframe=authorbadgebg,
+    boxrule=0pt, arc=8pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+    fontupper=\sffamily\bfseries\small\color{white}
+}
+\newcommand{\githubauthorbadge}[2]{\href{#2}{\authorbadge{#1}}}
+
+\newtcbox{\linkbadge}{
+    nobeforeafter, colback=linkbadgebg, colframe=linkbadgebg,
+    boxrule=0pt, arc=8pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
+    fontupper=\sffamily\bfseries\small\color{white}
+}
+\newcommand{\extralinkbadge}[2]{\href{#2}{\linkbadge{#1}}}
+
+\renewenvironment{abstract}
+  {\par\noindent\rmfamily\textbf{ABSTRACT: }}
+  {\par\vspace{1.5em}}
+
+\newcommand{\ms@image}{~/workspace/test/mushroom.png}
+\newcommand{\ms@maintitle}{Complex Analysis}
+\newcommand{\ms@subtitle}{Handouts from Monsoon'26}
+\newcommand{\ms@date}{Aug 14, 2026}
+\newcommand{\ms@name}{mushrooms-project}
+\newcommand{\ms@namelink}{https://github.com/VivekH90/mushrooms}
+\newcommand{\ms@titleline}{Title of this handout goes here}
+\newcommand{\ms@runninghead}{Complex Analysis}
+
+\newcommand{\setmsimage}[1]{\renewcommand{\ms@image}{#1}}
+
+\newcommand{\setmsmaintitle}[1]{%
+  \renewcommand{\ms@maintitle}{#1}%
+  \renewcommand{\ms@runninghead}{#1}%
+}
+
+\newcommand{\setmssubtitle}[1]{\renewcommand{\ms@subtitle}{#1}}
+
+\newcommand{\setmsdate}[1]{\renewcommand{\ms@date}{#1}}
+
+\newcommand{\setmsname}[2]{%
+  \renewcommand{\ms@name}{#1}%
+  \renewcommand{\ms@namelink}{#2}%
+}
+
+\newcommand{\setmstitleline}[1]{\renewcommand{\ms@titleline}{#1}}
+
+\newcommand{\ms@haslinkbadge}{false}
+\newcommand{\ms@linklabel}{}
+\newcommand{\ms@linkurl}{}
+\newcommand{\setmslinkbadge}[2]{%
+  \renewcommand{\ms@linklabel}{#1}%
+  \renewcommand{\ms@linkurl}{#2}%
+  \renewcommand{\ms@haslinkbadge}{true}%
+}
+
+\newcommand{\setmsrunninghead}[1]{\renewcommand{\ms@runninghead}{#1}}
+
+\newcommand{\ms@intro}{}
+\newcommand{\setmsintro}[1]{\renewcommand{\ms@intro}{#1}}
+
+\AtBeginDocument{\fancyhead[L]{\textbf{\ms@runninghead}}}
+
+\newcommand{\makemstitle}{%
+\thispagestyle{empty}%
+\vspace*{0pt}%
+
+\noindent
+\begin{minipage}[c]{0.18\textwidth}
+    \includegraphics[width=\linewidth]{\ms@image}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.78\textwidth}
+    {\sffamily\bfseries\fontsize{40pt}{44pt}\selectfont\color{maincolor}\ms@maintitle}\\[6pt]
+    {\sffamily\bfseries\large\color{subtitlegray}\ms@subtitle}
+\end{minipage}
+
+\vspace{18pt}
+
+\datebadge{\ms@date}%
+\hspace{8pt}%
+\githubauthorbadge{\ms@name}{\ms@namelink}%
+\ifdefstring{\ms@haslinkbadge}{true}{%
+  \hspace{8pt}\extralinkbadge{\ms@linklabel}{\ms@linkurl}%
+}{}
+
+\vspace{20pt}
+\hrule height 1pt
+\vspace{15pt}
+
+\hfill{\sffamily\bfseries\huge\color{maincolor}\ms@titleline}
+
+\vspace{15pt}
+
+\ifdefempty{\ms@intro}{}{%
+  \normalfont\ms@intro\par
+  \vspace{15pt}%
+}
+
+\tableofcontents
+}
+
+\endinput
