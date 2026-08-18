@@ -185,6 +185,20 @@
     breakable, arc=3pt, boxrule=0.5pt
 }
 
+\newtcolorbox{msbox}{
+    enhanced, breakable,
+    boxrule=0pt,
+    leftrule=1mm,
+    colframe=maincolor,
+    arc=0pt, outer arc=0pt,
+    interior style={
+        left color=maincolor!25!white,
+        right color=maincolor!15!white
+    },
+    left=6mm, right=4mm, top=3mm, bottom=3mm,
+    before skip=10pt, after skip=10pt
+}
+
 \newtcbox{\datebadge}{
     nobeforeafter, colback=datebadgebg, colframe=datebadgebg,
     boxrule=0pt, arc=8pt, left=8pt, right=8pt, top=4pt, bottom=4pt,
@@ -247,6 +261,9 @@
 
 \newcommand{\setmsrunninghead}[1]{\renewcommand{\ms@runninghead}{#1}}
 
+\newcommand{\ms@intro}{}
+\newcommand{\setmsintro}[1]{\renewcommand{\ms@intro}{#1}}
+
 \AtBeginDocument{\fancyhead[L]{\textbf{\ms@runninghead}}}
 
 \newcommand{\makemstitle}{%
@@ -279,6 +296,11 @@
 \hfill{\sffamily\bfseries\huge\color{maincolor}\ms@titleline}
 
 \vspace{15pt}
+
+\ifdefempty{\ms@intro}{}{%
+  \normalfont\ms@intro\par
+  \vspace{15pt}%
+}
 
 \tableofcontents
 }
